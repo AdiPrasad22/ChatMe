@@ -25,13 +25,17 @@ const ChatContainer = () => {
     subscribeToMessages();
 
     return () => unsubscribeFromMessages();
-  }, [selectedUser._id, getMessages]);
+  }, [selectedUser._id, getMessages,subscribeToMessages, unsubscribeFromMessages]);
 
   useEffect(() => {
     if (messageEndRef.current && messages) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
+  // useEffect(() => {
+  //   console.log('Selected User:', selectedUser);
+  //   console.log('Messages:', messages);
+  // }, [selectedUser, messages]);
 
   if (isMessagesLoading) {
     return (
