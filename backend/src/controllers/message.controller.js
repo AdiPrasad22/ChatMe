@@ -59,7 +59,7 @@ export const getMessages = async (req, res) => {
   
       const receiverSocketId = getReceiverSocketId(receiverId);
       if (receiverSocketId) {
-        io.to(receiverSocketId).emit("newMessage", newMessage);
+        io.to(receiverSocketId).emit("newMessage", newMessage);  //turant message push ho jata hai bina reload ke.
       }
   
       res.status(201).json(newMessage);
